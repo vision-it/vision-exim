@@ -1,0 +1,33 @@
+# Warning: This file is managed by puppet; DO NOT EDIT
+#
+
+.ifdef DCconfig_smarthost DCconfig_satellite
+
+# configtype=smarthost or configtype=satellite
+#
+# Send all non-local mail to a single other machine (smarthost).
+#
+# This means _ALL_ non-local mail goes to the smarthost. This will most
+# probably not do what you want for domains that are listed in
+# relay_domains. The most typical use for relay_domains is to control
+# relaying for incoming e-mail on secondary MX hosts. In that case,
+# it doesn't make sense to send the mail to the smarthost since the
+# smarthost will probably send the message right back here, causing a
+# loop.
+#
+# If you want to use a smarthost while being secondary MX for some
+# domains, you'll need to copy the dnslookup_relay_to_domains router
+# here so that mail to relay_domains is handled separately.
+
+vision:
+  debug_print = "R: smarthost for $local_part@$domain"
+  driver = manualroute
+  domains = ! +local_domains
+  transport = remote_smtp_smarthost
+  route_list = * DCsmarthost/mx:DCsmarthost byname
+  host_find_failed = ignore
+  host_all_ignored = defer
+  same_domain_copy_routing = yes
+  no_more
+
+.endif
