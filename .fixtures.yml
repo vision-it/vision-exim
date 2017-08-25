@@ -1,8 +1,8 @@
 ---
 fixtures:
-    repositories:
-        stdlib:
-            ref: "4.12.0"
-            repo: "https://github.com/puppetlabs/puppetlabs-stdlib"
-    symlinks:
-        vision_exim: '#{source_dir}'
+  repositories:
+    stdlib:
+      ref: "4.18.0"
+      repo: "https://github.com/puppetlabs/puppetlabs-stdlib"
+  symlinks:
+    vision_exim: '#{source_dir}'
