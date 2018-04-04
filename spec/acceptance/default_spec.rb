@@ -3,13 +3,13 @@ require 'spec_helper_acceptance'
 describe 'vision_exim' do
   context 'with defaults' do
     it 'idempotentlies run' do
-      pp = <<-EOS
+      pp = <<-FILE
         class { 'vision_exim':
          catch_all_alias => 'foo_bar',
          catch_all_email => 'for@bar.de',
          mailserver      => 'localhost',
         }
-      EOS
+      FILE
 
       apply_manifest(pp, catch_failures: true)
       apply_manifest(pp, catch_changes: true)
