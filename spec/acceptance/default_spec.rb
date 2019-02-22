@@ -12,15 +12,15 @@ describe 'vision_exim' do
       FILE
 
       apply_manifest(pp, catch_failures: true)
-      apply_manifest(pp, catch_changes: true)
+      apply_manifest(pp, catch_failures: true)
     end
   end
 
-  # context 'services' do
-  #   describe service('exim') do
-  #     it { should be_running }
-  #   end
-  # end
+  context 'services' do
+    describe service('exim4') do
+      it { should be_running }
+    end
+  end
 
   context 'provisioned files' do
     describe file('/etc/exim4/conf.d/router/160_exim4-config_vision') do
