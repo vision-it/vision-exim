@@ -2,7 +2,10 @@
 fixtures:
   repositories:
     stdlib:
-      ref: "4.24.0"
+      ref: "v6.0.0"
       repo: "https://github.com/puppetlabs/puppetlabs-stdlib"
+    mailalias_core:
+      ref: "1.0.5"
+      repo: "https://github.com/puppetlabs/puppetlabs-mailalias_core"
   symlinks:
     vision_exim: '#{source_dir}'
