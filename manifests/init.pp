@@ -8,12 +8,6 @@
 # @param catch_all_alias Name for catch all alias
 # @param catch_all_email Alias for all mails
 #
-# Examples
-# --------
-#
-# @example
-# contain ::vision_exim
-#
 
 class vision_exim (
 
