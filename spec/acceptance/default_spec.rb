@@ -24,17 +24,20 @@ describe 'vision_exim' do
 
   context 'provisioned files' do
     describe file('/etc/exim4/conf.d/router/160_exim4-config_vision') do
-      it { is_expected.to contain 'This file is managed by puppet' }
       it { is_expected.to be_file }
+      its(:content) { is_expected.to match 'Puppet' }
+      its(:content) { is_expected.to match 'vision' }
     end
 
     describe file('/etc/exim4/update-exim4.conf.conf') do
-      it { is_expected.to contain 'This file is managed by puppet' }
       it { is_expected.to be_file }
+      its(:content) { is_expected.to match 'Puppet' }
+      its(:content) { is_expected.to match 'localhost' }
     end
 
     describe file('/etc/mailname') do
       it { is_expected.to be_file }
+      its(:content) { is_expected.to match 'debian' }
     end
   end
 end
