@@ -1,38 +1,29 @@
 require 'spec_helper_acceptance'
 
-describe 'vision_exim' do
+describe 'vision_exim::client' do
   context 'with defaults' do
     it 'idempotentlies run' do
       pp = <<-FILE
-        class { 'vision_exim':
-         catch_all_alias => 'foo_bar',
-         catch_all_email => 'for@bar.de',
-         mailserver      => 'localhost',
+        class { 'vision_exim::client':
         }
       FILE
 
       apply_manifest(pp, catch_failures: true)
-      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
     end
   end
 
-  context 'services' do
+  context 'services running' do
     describe service('exim4') do
       it { should be_running }
     end
   end
 
   context 'provisioned files' do
-    describe file('/etc/exim4/conf.d/router/160_exim4-config_vision') do
-      it { is_expected.to be_file }
-      its(:content) { is_expected.to match 'Puppet' }
-      its(:content) { is_expected.to match 'vision' }
-    end
-
     describe file('/etc/exim4/update-exim4.conf.conf') do
       it { is_expected.to be_file }
       its(:content) { is_expected.to match 'Puppet' }
-      its(:content) { is_expected.to match 'localhost' }
+      its(:content) { is_expected.to match 'mail.service' }
     end
 
     describe file('/etc/mailname') do

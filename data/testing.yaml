@@ -1,4 +1,2 @@
 ---
-vision_exim::catch_all_alias: 'foo_bar'
-vision_exim::catch_all_email: 'foo@bar.de'
-vision_exim::mailserver: 'localhost'
+vision_exim::server::smarthost: 'localhost'
