@@ -35,4 +35,5 @@ class vision_exim::server (
     ensure  => running,
     require => Package['exim4'],
   }
+
 }

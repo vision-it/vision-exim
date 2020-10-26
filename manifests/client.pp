@@ -6,6 +6,7 @@
 #
 # @param smarthost Which mailserver to use
 #
+
 class vision_exim::client (
 
   String $smarthost
