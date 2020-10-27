@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'hiera'
 
@@ -7,7 +9,6 @@ describe 'vision_exim::client' do
       let(:facts) do
         facts
       end
-
       context 'compile' do
         it { is_expected.to compile.with_all_deps }
       end

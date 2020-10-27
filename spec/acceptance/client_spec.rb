@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'vision_exim::client' do
@@ -15,7 +17,7 @@ describe 'vision_exim::client' do
 
   context 'services running' do
     describe service('exim4') do
-      it { should be_running }
+      it { is_expected.to be_running }
     end
   end
 
