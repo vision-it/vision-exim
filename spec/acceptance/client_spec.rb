@@ -30,7 +30,6 @@ describe 'vision_exim::client' do
 
     describe file('/etc/mailname') do
       it { is_expected.to be_file }
-      its(:content) { is_expected.to match 'debian' }
     end
   end
 end

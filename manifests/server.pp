@@ -28,7 +28,7 @@ class vision_exim::server (
 
   file { '/etc/mailname':
     ensure  => present,
-    content => $::fqdn,
+    content => $::domain,
   }
 
   service { 'exim4':
