@@ -1,2 +1,4 @@
 ---
 vision_exim::server::smarthost: 'localhost'
+vision_exim::server::mail_alias: 'john.snow@north.westeros'
+vision_exim::client::mail_alias: 'john.snow@north.westeros'

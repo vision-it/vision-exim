@@ -28,6 +28,11 @@ describe 'vision_exim::server' do
       its(:content) { is_expected.to match 'localhost' }
     end
 
+    describe file('/etc/email-addresses') do
+      it { is_expected.to be_file }
+      its(:content) { is_expected.to match 'root: john' }
+    end
+
     describe file('/etc/mailname') do
       it { is_expected.to be_file }
     end
