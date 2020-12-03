@@ -1,6 +1,6 @@
 # vision-exim
 
-[![Build Status](https://travis-ci.org/vision-it/vision-exim.svg?branch=production)](https://travis-ci.org/vision-it/vision-exim)
+[![Build Status](https://travis-ci.com/vision-it/vision-exim.svg?branch=production)](https://travis-ci.com/vision-it/vision-exim)
 
 ## Usage
 
