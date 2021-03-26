@@ -17,4 +17,3 @@ Include in a role/profile:
 ```puppet
 contain ::vision_exim
 ```
-
